@@ -35,3 +35,12 @@
             return className.startsWith(pkgName) && target.matcher(simpleClassName).find();
         }
     }
+
+#效果
+![Screenshot_2015-08-12-23-36-42.png](./Screenshot_2015-08-12-23-36-42.png)
+
+![Screenshot_2015-08-12-23-36-47.png](./Screenshot_2015-08-12-23-36-47.png)
+
+![Screenshot_2015-08-12-23-36-53.png](./Screenshot_2015-08-12-23-36-53.png)
+
+
