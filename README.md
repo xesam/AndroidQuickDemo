@@ -15,6 +15,10 @@
 
     将 dev.xesam.android.quickdemo.QuickDemoActivity 设置为 LAUNCHER Activity 即可
 
+#获取aar
+
+位置 ： AndroidQuickDemo/build/outputs/aar/***.aar
+
 #默认过滤规则
 
 参见 SimpleFilter：
