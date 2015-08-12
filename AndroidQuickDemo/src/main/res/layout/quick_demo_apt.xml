@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quick_demo_root"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/quick_demo_item_height"
+    android:paddingLeft="@dimen/quick_demo_horizontal_padding"
+    android:paddingRight="@dimen/quick_demo_horizontal_padding">
+
+    <TextView
+        android:id="@+id/quick_demo_apt_prefix"
+        android:layout_width="@dimen/quick_demo_prefix"
+        android:layout_height="@dimen/quick_demo_prefix"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/quick_demo_horizontal_margin"
+        android:background="@color/quick_demo_package"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/quick_demo_apt_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/quick_demo_apt_prefix"
+        android:gravity="center_vertical"
+        android:text="here is package name" />
+</RelativeLayout>

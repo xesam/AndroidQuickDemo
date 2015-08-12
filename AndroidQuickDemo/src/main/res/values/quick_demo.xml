@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="quick_demo_padding">16dp</dimen>
+    <dimen name="quick_demo_horizontal_padding">16dp</dimen>
+    <dimen name="quick_demo_vertical_padding">16dp</dimen>
+    <dimen name="quick_demo_horizontal_margin">16dp</dimen>
+    <dimen name="quick_demo_item_height">50dp</dimen>
+    <dimen name="quick_demo_prefix">35dp</dimen>
+    <color name="quick_demo_activity">#ffcc00</color>
+    <color name="quick_demo_fragment">#009900</color>
+    <color name="quick_demo_package">#9999ff</color>
+</resources>
