@@ -20,6 +20,6 @@ public class SimpleFilter implements QuickDemoFilter {
     public boolean filter(String className) {
         String[] comps = className.split("\\.");
         String simpleClassName = comps[comps.length - 1];
-        return className.startsWith(pkgName) && target.matcher(simpleClassName).find();
+        return className.startsWith(pkgName) && target.matcher(simpleClassName).find() && simpleClassName.indexOf("$") == -1;
     }
 }
