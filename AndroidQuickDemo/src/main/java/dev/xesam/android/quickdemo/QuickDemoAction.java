@@ -32,7 +32,7 @@ public class QuickDemoAction implements AdapterView.OnItemClickListener {
     }
 
     static boolean isFragment(Class clazz) {
-        return Fragment.class.isAssignableFrom(clazz) || android.app.Fragment.class.isAssignableFrom(clazz);
+        return Fragment.class.isAssignableFrom(clazz);
     }
 
     @Override
