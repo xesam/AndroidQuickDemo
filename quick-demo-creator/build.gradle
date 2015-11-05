@@ -8,7 +8,7 @@ ext {
     libraryName = 'quick-demo-creator'
     artifact = 'quick-demo-creator'
 
-    libraryDescription = 'An easy tool for create android demo'
+    libraryDescription = 'An simple tool to create android demo easier'
 
     siteUrl = 'https://github.com/xesam/AndroidQuickDemo'
     gitUrl = 'https://github.com/xesam/AndroidQuickDemo.git'
