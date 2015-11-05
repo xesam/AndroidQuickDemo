@@ -24,7 +24,7 @@
 
 #默认过滤规则
 
-参见 SimpleFilter：
+如果觉得不想使用demo，sample之类的名称，可以自定义多虑规则 参见 SimpleFilter：
 
     public class SimpleFilter implements QuickDemoFilter {
 
