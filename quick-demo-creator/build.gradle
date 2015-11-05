@@ -1,5 +1,30 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'quick-demo-creator'
+
+    publishedGroupId = 'dev.xesam.android'
+    libraryName = 'quick-demo-creator'
+    artifact = 'quick-demo-creator'
+
+    libraryDescription = 'An easy tool for create android demo'
+
+    siteUrl = 'https://github.com/xesam/AndroidQuickDemo'
+    gitUrl = 'https://github.com/xesam/AndroidQuickDemo.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'xesam'
+    developerName = 'xesam'
+    developerEmail = 'xesamguo@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -22,3 +47,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:support-v4:23.1.0'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
