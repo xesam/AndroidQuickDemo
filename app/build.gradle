@@ -21,5 +21,5 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':quick-demo-creator')
+    compile 'dev.xesam.android:quick-demo-creator:0.1.0'
 }

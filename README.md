@@ -4,6 +4,10 @@
 
 在我们写一些 demo 的时候，经常需要针对每种情况写一个用户示例，新建 Activity 的过程太麻烦，所以这个库的作用就是自动帮你创建索引式的导航列表，一行代码搞定所有的示例。
 
+#使用方式
+
+    compile 'dev.xesam.android:quick-demo-creator:0.1.0'
+    
 #两种模式：
 
 ## 1. 列出所有已经注册的Activity，点击即可打开
@@ -17,10 +21,6 @@
 用法：
 
     将 dev.xesam.android.quickdemo.QuickDemoActivity 设置为 LAUNCHER Activity 即可
-
-#获取aar
-
-位置 ： AndroidQuickDemo/build/outputs/aar/***.aar
 
 #默认过滤规则
 
