@@ -1,1 +1,1 @@
-include ':app', ':AndroidQuickDemo'
+include ':app', ':quick-demo-creator'
