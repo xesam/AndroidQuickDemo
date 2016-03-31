@@ -1,14 +1,14 @@
 #AndroidQuickDemo
 
-#设计目的
+# 设计目的
 
 在我们写一些 demo 的时候，经常需要针对每种情况写一个用户示例，新建 Activity 的过程太麻烦，所以这个库的作用就是自动帮你创建索引式的导航列表，一行代码搞定所有的示例。
 
-#使用方式
+# 使用方式
 
     compile 'dev.xesam.android:quick-demo-creator:0.1.0'
     
-#两种模式：
+# 两种模式：
 
 ## 1. 列出所有已经注册的Activity，点击即可打开
 
@@ -22,7 +22,7 @@
 
     将 dev.xesam.android.quickdemo.QuickDemoActivity 设置为 LAUNCHER Activity 即可
 
-#默认过滤规则
+# 默认过滤规则
 
 如果觉得不想使用demo，sample之类的名称，可以自定义多虑规则 参见 SimpleFilter：
 
@@ -43,7 +43,14 @@
         }
     }
 
-#效果
+## 原理说明
+
+1. 遍历指定包名下的所有 Fragment 与 Activity
+2. 过滤出符合条件的所有 Fragment 与 Activity，得到相应的界面结合
+3. 构建集合的树形结构
+4. 在预定的宿主 Activity 里面显示所有的 Fragment 与 Activity
+
+# 效果
 ![Screenshot_2015-08-12-23-36-42.png](./Screenshot_2015-08-12-23-36-42.png)
 
 ![Screenshot_2015-08-12-23-36-47.png](./Screenshot_2015-08-12-23-36-47.png)

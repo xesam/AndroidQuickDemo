@@ -31,7 +31,6 @@ public class QuickDemoTree {
 
     public static QuickDemoTree makeDemoTree(String packageName, Set<String> demos) {
         QuickTreeNode root = QuickTreeNode.makeDemoNode(packageName, packageName, demos);
-        QuickDemoTree demoTree = new QuickDemoTree(packageName, root);
-        return demoTree;
+        return new QuickDemoTree(packageName, root);
     }
 }

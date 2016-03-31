@@ -12,27 +12,31 @@ import android.widget.TextView;
  */
 public class QuickDemoAdapter extends BaseAdapter {
 
-    Context context;
-    QuickTreeNode treeNode;
+    public static final String ACTIVITY_FLAG = "A";
+    public static final String FRAGMENT_FLAG = "F";
+    public static final String PACKAGE_FLAG = "P";
+
+    private Context mContext;
+    private QuickTreeNode mTreeNode;
 
     public QuickDemoAdapter(Context context, QuickTreeNode treeNode) {
-        this.context = context;
-        this.treeNode = treeNode;
+        this.mContext = context;
+        this.mTreeNode = treeNode;
     }
 
     @Override
     public int getCount() {
-        return treeNode.getChildCount();
+        return mTreeNode.getChildCount();
     }
 
     @Override
     public QuickTreeNode getItem(int position) {
-        return treeNode.getTreeNodes().get(position);
+        return mTreeNode.getTreeNodes().get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -40,7 +44,7 @@ public class QuickDemoAdapter extends BaseAdapter {
         QuickTreeNode item = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.quick_demo_apt, parent, false);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.quick_demo_apt, parent, false);
             convertView.setTag(new ViewHolder(convertView));
         }
 
@@ -50,10 +54,10 @@ public class QuickDemoAdapter extends BaseAdapter {
             try {
                 Class clazz = Class.forName(item.getCanonicalName());
                 if (QuickDemoAction.isActivity(clazz)) {
-                    viewHolder.vPrefix.setText("A");
+                    viewHolder.vPrefix.setText(ACTIVITY_FLAG);
                     viewHolder.vPrefix.setBackgroundColor(convertView.getResources().getColor(R.color.quick_demo_activity));
                 } else if (QuickDemoAction.isFragment(clazz)) {
-                    viewHolder.vPrefix.setText("F");
+                    viewHolder.vPrefix.setText(FRAGMENT_FLAG);
                     viewHolder.vPrefix.setBackgroundColor(convertView.getResources().getColor(R.color.quick_demo_fragment));
                 }
             } catch (ClassNotFoundException e) {
@@ -61,7 +65,7 @@ public class QuickDemoAdapter extends BaseAdapter {
             }
             viewHolder.vName.setText(item.getName());
         } else {
-            viewHolder.vPrefix.setText("P");
+            viewHolder.vPrefix.setText(PACKAGE_FLAG);
             viewHolder.vPrefix.setBackgroundColor(convertView.getResources().getColor(R.color.quick_demo_package));
             viewHolder.vName.setText(item.getName());
         }

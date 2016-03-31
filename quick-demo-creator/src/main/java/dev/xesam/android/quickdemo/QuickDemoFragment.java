@@ -14,9 +14,6 @@ public class QuickDemoFragment extends Fragment {
 
     static final String TREE_NODE = "TREE_NODE";
 
-    private TextView vTitle;
-    private ListView vLV;
-
     public static QuickDemoFragment newInstance(QuickTreeNode treeNode) {
         QuickDemoFragment fragment = new QuickDemoFragment();
         Bundle args = new Bundle();
@@ -39,11 +36,10 @@ public class QuickDemoFragment extends Fragment {
 
         QuickTreeNode treeNode = getArguments().getParcelable(TREE_NODE);
 
-        vTitle = (TextView) view.findViewById(R.id.quick_demo_pkg_name);
+        TextView vTitle = (TextView) view.findViewById(R.id.quick_demo_pkg_name);
         vTitle.setText(treeNode.getPackageName());
 
-        vLV = (ListView) view.findViewById(R.id.quick_demo_lv);
-
+        ListView vLV = (ListView) view.findViewById(R.id.quick_demo_lv);
         vLV.setAdapter(new QuickDemoAdapter(getActivity(), treeNode));
         vLV.setOnItemClickListener(new QuickDemoAction(getFragmentManager()));
     }

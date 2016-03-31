@@ -87,13 +87,13 @@ public class QuickDemo {
 
     ///////////////////////////////////////////
 
-    public static void inflateDemoe(FragmentActivity activity, int containerViewId) {
+    public static void inflateDemo(FragmentActivity activity, int containerViewId) {
         Set<String> demos = QuickDemo.filterClasses(activity, new SimpleFilter(activity));
         QuickDemoTree demoTree = QuickDemoTree.makeDemoTree(activity, demos);
-        inflateDemoe(activity.getSupportFragmentManager(), containerViewId, demoTree);
+        inflateDemo(activity.getSupportFragmentManager(), containerViewId, demoTree);
     }
 
-    public static void inflateDemoe(FragmentManager fragmentManager, int containerViewId, QuickDemoTree demoTree) {
+    public static void inflateDemo(FragmentManager fragmentManager, int containerViewId, QuickDemoTree demoTree) {
         QuickTreeNode root = demoTree.getRoot();
         fragmentManager.beginTransaction()
                 .replace(containerViewId, QuickDemoFragment.newInstance(root))

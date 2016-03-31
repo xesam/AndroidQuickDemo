@@ -14,8 +14,8 @@ import java.util.Set;
  * Created by xe xesamguo@gmail.com on 15-8-12.
  */
 public class QuickTreeNode implements Parcelable {
-    String packageName;
-    String name;
+    String packageName = "";
+    String name = "";
     List<QuickTreeNode> treeNodes;
 
     public QuickTreeNode(String packageName, String name, List<QuickTreeNode> treeNodes) {
