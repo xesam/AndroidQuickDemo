@@ -65,7 +65,7 @@ public class QuickDemo {
                     convertView.setTag(new QuickDemoAdapter.ViewHolder(convertView));
                 }
                 QuickDemoAdapter.ViewHolder viewHolder = (QuickDemoAdapter.ViewHolder) convertView.getTag();
-                viewHolder.vPrefix.setText("A");
+                viewHolder.vPrefix.setText(QuickDemoAdapter.ACTIVITY_FLAG);
                 viewHolder.vPrefix.setBackgroundColor(convertView.getResources().getColor(R.color.quick_demo_activity));
                 viewHolder.vName.setText(getItem(position));
                 return convertView;
@@ -87,28 +87,19 @@ public class QuickDemo {
 
     ///////////////////////////////////////////
 
-    public static void inflateDemo(FragmentActivity activity, int containerViewId) {
-        Set<String> demos = QuickDemo.filterClasses(activity, new SimpleFilter(activity));
-        QuickDemoTree demoTree = QuickDemoTree.makeDemoTree(activity, demos);
-        inflateDemo(activity.getSupportFragmentManager(), containerViewId, demoTree);
-    }
 
-    public static void inflateDemo(FragmentManager fragmentManager, int containerViewId, QuickDemoTree demoTree) {
-        QuickTreeNode root = demoTree.getRoot();
-        fragmentManager.beginTransaction()
-                .replace(containerViewId, QuickDemoFragment.newInstance(root))
-                .commit();
-    }
-
+    /**
+     * 过滤所有符合条件的类
+     */
     static Set<String> filterClasses(Context context, QuickDemoFilter classFilter) {
         DexFile dexFile = null;
         Set<String> demos = new HashSet<>();
         try {
             dexFile = new DexFile(context.getPackageCodePath());
             for (Enumeration<String> iterator = dexFile.entries(); iterator.hasMoreElements(); ) {
-                String s = iterator.nextElement();
-                if (classFilter.filter(s)) {
-                    demos.add(s);
+                String className = iterator.nextElement();
+                if (classFilter.filter(className)) {
+                    demos.add(className);
                 }
             }
         } catch (IOException e) {
@@ -124,5 +115,22 @@ public class QuickDemo {
         }
 
         return demos;
+    }
+
+    public static void inflateDemo(FragmentManager fragmentManager, int containerId, QuickDemoTree demoTree) {
+        QuickTreeNode root = demoTree.getRoot();
+        fragmentManager.beginTransaction()
+                .replace(containerId, QuickDemoFragment.newInstance(root))
+                .commit();
+    }
+
+    public static void inflateDemo(FragmentActivity activity, int containerId, QuickDemoFilter quickDemoFilter) {
+        Set<String> demos = QuickDemo.filterClasses(activity, quickDemoFilter);
+        QuickDemoTree demoTree = QuickDemoTree.makeDemoTree(activity, demos);
+        inflateDemo(activity.getSupportFragmentManager(), containerId, demoTree);
+    }
+
+    public static void inflateDemo(FragmentActivity activity, int containerId) {
+        inflateDemo(activity, containerId, new SimpleFilter(activity));
     }
 }
