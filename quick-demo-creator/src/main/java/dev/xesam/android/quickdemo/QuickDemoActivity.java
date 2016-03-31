@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 
 /**
  * default Host Activity
- * <p/>
  * Created by xesamguo@gmail.com on 15-8-5.
  */
 public class QuickDemoActivity extends FragmentActivity {
