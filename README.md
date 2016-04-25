@@ -1,6 +1,13 @@
 
 # 【Android】如何快速构建Android Demo
 
+说明：由于 Android Plugin for Gradle 2.0.0 的 InstantRun 方式破坏了 debug 版本的启动方式，因此，new DexFile(getPackageCodePath()); 的方式无法获取到所有的 Class。
+此问题暂未找到简便的解决方式，因此，本 lib 只能运行在非 InstantRun 模式下。
+
+问题详述可以参见 [DexFile in 2.0 versions of Android Studio and Gradle](http://stackoverflow.com/questions/36572515/dexfile-in-2-0-versions-of-android-studio-and-gradle/36594966#36594966)
+
+如果您有好的解决方案，请联系 [xesam](http://xesam.github.io/about/)
+
 ## 简介
 
 在 Android 学习的过程中，经常需要针对某些项目来写一些测试的例子，或者在做一些 demo 的时候，都需要先写 Activity 然后注册。
