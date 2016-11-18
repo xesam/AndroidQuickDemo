@@ -1,10 +1,19 @@
-
 # 【Android】如何快速构建Android Demo
 
-说明：由于 Android Plugin for Gradle 2.0.0 的 InstantRun 方式破坏了 debug 版本的启动方式，因此，new DexFile(getPackageCodePath()); 的方式无法获取到所有的 Class。
+说明：由于 Android Plugin for Gradle 2.0.0 的 InstantRun 方式破坏了 debug 版本的启动方式，因此，
+
+```java
+    new DexFile(getPackageCodePath());
+```
+
+的方式无法获取到所有的 Class。
 此问题暂未找到简便的解决方式，因此，本 lib 只能运行在非 InstantRun 模式下。
 
-可以在 Android Studio 的 File - Setting - Build,Execution,Deployment - Instant Run 中禁用Instant Run。
+可以在
+
+    Android Studio 的 File - Setting - Build,Execution,Deployment - Instant Run
+
+中禁用Instant Run。
 
 问题详述可以参见 [DexFile in 2.0 versions of Android Studio and Gradle](http://stackoverflow.com/questions/36572515/dexfile-in-2-0-versions-of-android-studio-and-gradle/36594966#36594966)
 
@@ -23,7 +32,7 @@
 PS：AndroidQuickDemo 同时增加了 Activity 的支持，但是由于 Android 系统的限制，Activity必须被注册，这一点是无法绕过去的。
 当然，也可以使用插件的原理，达到自动索引 Activity 的目的，不过，在我的实际使用中，当一定要使用 Activity 的时候，肯定是为了使用或者探究 Activity 的直接效果，而不应该进行代理或者拦截。
 
-## 使用方式
+## 添加依赖
 
     compile 'dev.xesam.android:quick-demo-creator:0.2.0'
 
@@ -71,7 +80,7 @@ public class MyManActivity extends FragmentActivity {
 
 ```
 
-默认的目录索引只会显示当前 PackageName 下名称中包含 "demo 或者 sample 或者 example"的 Activity 或者 Fragment，
+*默认的目录索引只会显示当前 PackageName 下名称中包含 "demo 或者 sample 或者 example"的 Activity 或者 Fragment*，
 如果想按照自己的规则来定义过滤，可以自定义 QuickDemoFilter,一个示例如下：
 
 ```java
